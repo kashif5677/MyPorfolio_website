@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OverlayMenu = () => {
+const Project = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const OverlayMenu = () => {
   )
 }
 
-export default OverlayMenu
+export default Project
