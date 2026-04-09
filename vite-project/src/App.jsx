@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Home from './sections/Home'
 import About from './sections/About'
@@ -9,11 +8,13 @@ import Footer from './sections/Footer'
 import Testimonials from './sections/Testimonials'
 import Project from './sections/Project'
 import ParticlesBackground from './components/ParticlesBackground'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
 
   return (
    <div className='relative gradient'>
+    <CustomCursor/>
     <ParticlesBackground/>
 
 
