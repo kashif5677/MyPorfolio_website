@@ -8,7 +8,7 @@ useEffect(() => {
     const ctx = canvas.getContext('2d');
     
     let particles=[]
-    const particleCount=500
+    const particleCount=50
     const colors=['#FF0000','#00FF00','#0000FF']
 
     // eslint-disable-next-line react-hooks/unsupported-syntax
@@ -33,10 +33,45 @@ useEffect(() => {
         update(){
             this.x+=this.speedX
             this.y+=this.speedY
-        }
 
+        if(this.x<0) this.x=canvas.width
+        if(this.x>canvas.width) this.x=0
+        if(this.y<0) this.y=canvas.height
+        if(this.y>canvas.height) this.y=0    
+
+        this.draw();
+        }
     }
-})
+
+    function createParticles(){
+        particles=[]
+        for(let i=0;i<particleCount;i++){
+            particles.push(new Particle())
+        }
+    }
+
+    function handleResize(){
+    canvas.width=window.innerWidth 
+    canvas.height=window.innerHeight
+    createParticles()
+    }
+    handleResize();
+    window.addEventListener('resize',handleResize)
+
+    let animationId;
+    function animate(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach((p)=>p.update());
+        animationId=requestAnimationFrame(animate);
+    }
+    animate();
+
+    return ()=>{
+        cancelAnimationFrame(animationId)
+        window.removeEventListener('resize',handleResize)
+    }
+
+},[])
 
   return (
     <canvas
