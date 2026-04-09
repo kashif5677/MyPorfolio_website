@@ -11,7 +11,9 @@ const CustomCursor = () => {
 
         window.addEventListener('mousemove',moveHandler)
 
-        
+        return ()=>{
+            window.removeEventListener('mousemove',moveHandler)            
+        }
     }, [])
 
 
