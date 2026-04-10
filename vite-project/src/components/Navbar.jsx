@@ -17,14 +17,24 @@ const [visible,setVisible]=useState(true)
     </div>
 
     <div className='block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/ 2'>
-    <button>
-        
+    <button onClick={() => setMenuOpen(true)}
+        className='text-white text-3xl focus:outline-none'
+            aria-label='open Menu'
+        >
+            <IoMenu />
     </button>
+    </div>
 
+    <div className='hidden lg:block'>
+    <a href="#contact"
+        className='bg-gradient-to-r from-pink-500 to-blue-500 text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-opacity duration-300'
+    >
+        ReactOut
+    </a>
     </div>
 
     </nav>
-    <OverlayMenu/>
+    <OverlayMenu isOpen={menuopen} onClose={()=> setMenuOpen(false)}/>
     </>
   )
 }
