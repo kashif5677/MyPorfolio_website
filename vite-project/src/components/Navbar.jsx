@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'
 import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
-const [menuopen,setMenuOpen]=useState(false)
+const [menuOpen,setMenuOpen]=useState(false)
 const [visible,setVisible]=useState(true)
 
   return (
@@ -34,7 +34,7 @@ const [visible,setVisible]=useState(true)
     </div>
 
     </nav>
-    <OverlayMenu isOpen={menuopen} onClose={()=> setMenuOpen(false)}/>
+    <OverlayMenu isOpen={menuOpen} onClose={()=> setMenuOpen(false)}/>
     </>
   )
 }
