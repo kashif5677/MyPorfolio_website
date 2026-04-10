@@ -14,6 +14,14 @@ const [visible,setVisible]=useState(true)
         <img src={logo} className='w-8 h-8' />
         <div className='text-2xl font-bold text-white hidden sm:block'>kashif</div>
     </div>
+
+    <div className='block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/ 2'>
+    <button>
+        
+    </button>
+
+    </div>
+
     </nav>
     <OverlayMenu/>
     </>
