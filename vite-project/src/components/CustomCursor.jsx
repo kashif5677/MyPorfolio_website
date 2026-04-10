@@ -19,7 +19,7 @@ const CustomCursor = () => {
 
   return (
     <div className='pointer-events-none fixed top-0 left-0 z-[999]'
-    style={{transform:`translate(${position.x}px,${position.y}px)`}}
+    style={{transform:`translate(${position.x - 40}px,${position.y - 40}px)`}}
     >
       <div 
       className='w-20 h-20 rounded-full bg-gradient-to-r from-pink-700 to-blue-500 blur-3xl opacity-100'
