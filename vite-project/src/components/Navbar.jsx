@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { use } from 'react'
 
 const Navbar = () => {
+const [menuopen,setMenuOpen]=useState(false)
+
   return (
     <nav>
       Navbar
