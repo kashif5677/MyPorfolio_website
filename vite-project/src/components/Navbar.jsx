@@ -18,7 +18,7 @@ const [visible,setVisible]=useState(true)
 
     <div className='block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/ 2'>
     <button>
-
+            <IoMenu />
     </button>
 
     </div>
