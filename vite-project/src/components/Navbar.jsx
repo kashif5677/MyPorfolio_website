@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react'
 import OverlayMenu from './OverlayMenu'
 import logo from '../assets/logo.png'
+import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
 const [menuopen,setMenuOpen]=useState(false)
@@ -17,7 +18,7 @@ const [visible,setVisible]=useState(true)
 
     <div className='block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/ 2'>
     <button>
-        
+
     </button>
 
     </div>
