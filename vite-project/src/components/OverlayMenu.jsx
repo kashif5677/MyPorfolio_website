@@ -11,7 +11,10 @@ const OverlayMenu = ({isOpen,onClose}) => {
   return (
     <AnimatePresence>
       {isOpen && (
-          <motion.div className='fixed inset-0 flex items-center justify-center z-50'>
+          <motion.div className='fixed inset-0 flex items-center justify-center z-50'
+            initial={{clipPath:`circle(0% at ${origin})`}}
+          >
+           
             <button onClick={onClose}
                 className='absolute top-6 right-6 text-white text-3xl'
                 aria-label='close menu'
