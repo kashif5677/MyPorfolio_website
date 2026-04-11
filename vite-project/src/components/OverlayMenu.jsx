@@ -3,6 +3,10 @@ import {motion,AnimatePresence} from 'framer-motion'
 import { FiX } from "react-icons/fi";
 
 const OverlayMenu = ({isOpen,onClose}) => {
+
+  const = isMobile=typeof window !== "undefined" && window.innerWidth < 1024
+
+
   return (
     <AnimatePresence>
       {isOpen && (
