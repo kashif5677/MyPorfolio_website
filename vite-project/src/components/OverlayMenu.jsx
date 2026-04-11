@@ -4,7 +4,8 @@ import { FiX } from "react-icons/fi";
 
 const OverlayMenu = ({isOpen,onClose}) => {
 
-  const = isMobile=typeof window !== "undefined" && window.innerWidth < 1024
+  const = isMobile=typeof window !== "undefined" && window.innerWidth < 1024;
+  const origin=isMobile ? "95% 8%" : "50% 8%";
 
 
   return (
