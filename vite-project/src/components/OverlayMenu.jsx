@@ -13,6 +13,9 @@ const OverlayMenu = ({isOpen,onClose}) => {
       {isOpen && (
           <motion.div className='fixed inset-0 flex items-center justify-center z-50'
             initial={{clipPath:`circle(0% at ${origin})`}}
+            animate={{clipPath:`circle(100% at ${origin})`}}
+            exit={{clipPath:`circle(0% at ${origin})`}}
+            transition={{duration:0.5}}
           >
            
             <button onClick={onClose}
