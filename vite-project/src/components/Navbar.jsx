@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, { use, useEffect, useState,useRef } from 'react'
 import OverlayMenu from './OverlayMenu'
 import logo from '../assets/logo.png'
 import { IoMenu } from "react-icons/io5";
@@ -6,6 +6,27 @@ import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
 const [menuOpen,setMenuOpen]=useState(false)
 const [visible,setVisible]=useState(true)
+const [forceVisible, setForceVisible] = useState(false);
+
+const lastScrollY = useRef(0);
+const timerId=useRef(null)
+
+    useEffect(()=>{
+        const homeSection=document.querySelector('#home')
+        const observer=new IntersectionObserver(entries=>{
+            if(entries[0].isIntersecting){
+                setForceVisible(true)
+                setVisible(true)
+            }else{
+                setVisible(false)
+            }
+        },{threshold: 0.1})
+        if(homeSection){
+
+        }
+
+    })
+
 
   return (
     <>
@@ -32,7 +53,7 @@ const [visible,setVisible]=useState(true)
         ReactOut
     </a>
     </div>
-
+        <div></div>
     </nav>
     <OverlayMenu isOpen={menuOpen} onClose={()=> setMenuOpen(false)}/>
     </>

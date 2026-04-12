@@ -4,10 +4,10 @@ import { FiX } from "react-icons/fi";
 
 const OverlayMenu = ({isOpen,onClose}) => {
 
-  const = isMobile=typeof window !== "undefined" && window.innerWidth < 1024;
-  const origin=isMobile ? "95% 8%" : "50% 8%";
+  const isMobile=typeof window !== "undefined" && window.innerWidth < 1024;
+  const origin=isMobile ? "90% 8%" : "50% 8%";
 
-
+ 
   return (
     <AnimatePresence>
       {isOpen && (
@@ -16,12 +16,13 @@ const OverlayMenu = ({isOpen,onClose}) => {
             animate={{clipPath:`circle(100% at ${origin})`}}
             exit={{clipPath:`circle(0% at ${origin})`}}
             transition={{duration:0.5,ease:[0.4,0,0.2,1]}}
+            style={{backgroundColor:"rgba(0,0,0,0.95)"}}
           >
            
             <button onClick={onClose}
                 className='absolute top-6 right-6 text-white text-3xl'
                 aria-label='close menu'
-            >
+            >  
                 <FiX/>
             </button>
 
