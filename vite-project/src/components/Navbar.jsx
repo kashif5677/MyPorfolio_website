@@ -41,16 +41,15 @@ const timerId=useRef(null)
                 if(timerId.current) clearTimeout(timerId.current)
                 timerId.current=setTimeout(()=>{
                     setVisible(false)
-
                 },3000)
                 lastScrollY.current=currentScrollY
             }
-            window.addEventListener('scroll',handleScroll,{passive:true})
+        }
+        window.addEventListener('scroll',handleScroll,{passive:true})
 
-            return ()=> {
-                window.removeEventListener('scroll',handleScroll)
-                if(timerId.current) clearTimeout(timerId.current)
-            }
+        return ()=> {
+            window.removeEventListener('scroll',handleScroll)
+            if(timerId.current) clearTimeout(timerId.current)
         }
     },[forceVisible])
 

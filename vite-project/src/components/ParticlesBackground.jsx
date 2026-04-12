@@ -8,8 +8,8 @@ useEffect(() => {
     const ctx = canvas.getContext('2d');
     
     let particles=[]
-    const particleCount=50
-    const colors=['#FF0000','#00FF00','#0000FF']
+    const particleCount=40
+    const colors=['#FFFFFF','#FFFAFA','#EDEADE']
 
     // eslint-disable-next-line react-hooks/unsupported-syntax
     class Particle{
