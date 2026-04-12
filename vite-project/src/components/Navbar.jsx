@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState,useRef } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import OverlayMenu from './OverlayMenu'
 import logo from '../assets/logo.png'
 import { IoMenu } from "react-icons/io5";
@@ -21,11 +21,38 @@ const timerId=useRef(null)
                 setVisible(false)
             }
         },{threshold: 0.1})
-        if(homeSection){
-
+        if(homeSection) observer.observe(homeSection);
+        return ()=>{
+            if(homeSection) observer.unobserve(homeSection);
         }
+    },[])
 
-    })
+    useEffect(()=>{
+        const handleScroll=()=>{
+            if(forceVisible){
+                setVisible(true)
+                return
+            }
+        const currentScrollY=window.scrollY
+            if(currentScrollY.scrollY > lastScrollY.current){
+                setVisible(false)
+            }else{
+                setVisible(true)
+                if(timerId.current) clearTimeout(timerId.current)
+                timerId.current=setTimeout(()=>{
+                    setVisible(false)
+
+                },3000)
+                lastScrollY.current=currentScrollY
+            }
+            window.addEventListener('scroll',handleScroll,{passive:true})
+
+            return ()=> {
+                window.removeEventListener('scroll',handleScroll)
+                if(timerId.current) clearTimeout(timerId.current)
+            }
+        }
+    },[forceVisible])
 
 
   return (
