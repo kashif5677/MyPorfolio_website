@@ -6,7 +6,7 @@ const Home = () => {
   const roles=useMemo(()=>["web developer","SoftwareDeveloper"])
 
   // const [index,setIndex]=React.useState(0)
-  const [subIndex,setSubIndex]=React.useState(0)
+  // const [subIndex,setSubIndex]=React.useState(0)
   const [deleting,setdeleting]=React.useState(false)
   
 
