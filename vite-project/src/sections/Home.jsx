@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { use, useMemo } from 'react'
 import ParticlesBackground from '../components/ParticlesBackground'
+import {motion} from 'framer-motion'
 
 const Home = () => {
+  const roles=useMemo(()=>["web developer","SoftwareDeveloper"])
+
+  const [index,setIndex]=React.useState(0)
+  const [subIndex,setSubIndex]=React.useState(0)
+  const [deleting,setdeleting]=React.useState(false)
+  
+
+
   return (
     <section className='w-full h-screen relative bg-black overflow-hidden'>
       <ParticlesBackground/>
