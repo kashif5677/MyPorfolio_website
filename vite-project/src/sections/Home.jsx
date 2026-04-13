@@ -3,7 +3,7 @@ import ParticlesBackground from '../components/ParticlesBackground'
 import {motion} from 'framer-motion'
 
 const Home = () => {
-  const roles=useMemo(()=>["web developer","SoftwareDeveloper"],[])
+  const roles=useMemo(()=>["web developer","Software Developer"],[])
 
   const [index,setIndex]=React.useState(0)
   const [subIndex,setSubIndex]=React.useState(0)
@@ -32,7 +32,7 @@ const Home = () => {
 
 
   return (
-    <section className='w-full h-screen relative bg-black overflow-hidden'>
+    <section className='w-full h-screen relative text-white bg-black overflow-hidden'>
       <ParticlesBackground/>
       <div className='absolute inset-0'>
       <div className='absolute -top-32 -left-32 
@@ -60,9 +60,47 @@ const Home = () => {
 
     <div className='relative z-10 h-full w-full max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 '>
     <div className='flex flex-col justify-center h-full text-center lg:text-left relative '>
-      <div className='w-full lg:pr-24 mx-auto max-w-[48rem}'></div>
+      <div className='w-full lg:pr-24 mx-auto max-w-[48rem}'>
+        <motion.div
+          className='mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]'
+          initial={{opacity:0.5,y:12}}
+          animate={{opacity:1,y:0}}
+          transition={{duration:1,ease:[0.4,0,0.2,1]}}
+        >
+          <span>
+            {roles[index].substring(0,subIndex)}
+          </span>
+          <span className="inline-block w-[10px] ml-1 bg-white animate-pulse align-middle" style={{height:'1em'}}></span>
+          </motion.div>
+          <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1cc2d8] via-[#00b2bf] to-[#2b2c63] drop-shadow-lg'
+          initial={{opacity:0.5,y:40}}
+          animate={{opacity:1,y:0}}
+          transition={{duration:2}}
+          >
+            Hello's  I am <br />
+            <span className='text-white font-bold text-5xl  sm:text-6xl md:text-7xl lg:text-8xl lg:space-nowrap'>Md kashif Nisar</span>
+          </motion.h1>
+          <motion.p className='mt-6 tet-base sm:text-lg md:text-1 text-gray-300 mx-w-2xl mx-auto lg:mx-0'
+          initial={{opacity:0,y:40}}
+          animate={{opacity:1,y:0}}
+          transition={{delay:2,duration:1.2}}
+          >
+            I turn coplex ideas into seamless,high-impact web experiences - building modern,scalable,and lighting-fast applications that make a difference
+          </motion.p>
+          <motion.div className='mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6'
+          initial={{opacity:0}}
+          animate={{opacity:1}}
+          transition={{delay:0.8,duration:0.8}}
+          >
+            <a 
+            href="#project"
+            className='px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] shadow-lg hover:scale-105 transition-all'
+            >View my work</a>
+            <a href="">My Resume</a>
+          </motion.div>
+      </div>
     </div>
-    </div>jhuhjijktrfewfy
+    </div>
 
 
 
