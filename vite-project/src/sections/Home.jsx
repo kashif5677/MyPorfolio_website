@@ -3,12 +3,32 @@ import ParticlesBackground from '../components/ParticlesBackground'
 import {motion} from 'framer-motion'
 
 const Home = () => {
-  const roles=useMemo(()=>["web developer","SoftwareDeveloper"])
+  const roles=useMemo(()=>["web developer","SoftwareDeveloper"],[])
 
-  // const [index,setIndex]=React.useState(0)
-  // const [subIndex,setSubIndex]=React.useState(0)
+  const [index,setIndex]=React.useState(0)
+  const [subIndex,setSubIndex]=React.useState(0)
   const [deleting,setdeleting]=React.useState(false)
   
+
+  React.useEffect(()=>{
+    const current=roles[index]
+    const timeout=setTimeout(()=>{
+      if(!deleting && subIndex<current.length)(
+          setSubIndex(v=>v+1)
+      )
+      else if(!deleting && subIndex===current.length)( setTimeout(()=>{setdeleting(true)},1000))
+      else if(deleting && subIndex>0)(
+          setSubIndex(v=>v-1)   
+      )
+      else if(deleting && subIndex === 0)(
+          setdeleting(false),
+          setIndex(v=>(v+1)%roles.length)
+      )
+    },deleting?40:60)
+
+    return()=>clearTimeout(timeout)
+
+  },[subIndex,index,deleting,roles])
 
 
   return (
