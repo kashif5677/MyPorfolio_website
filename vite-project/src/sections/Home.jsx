@@ -141,18 +141,33 @@ const Home = () => {
           </div>
       </div>
     </div>
+
+    <div className='relative hidden lg:block'>
+      <div className='absolute top-1/2 -translate-y-1/2 pointer-events-none '
+        style={{
+          right:"10px",width:"min(22vw,410px)",height:"min(40vw,750px)",
+          borderRadius:"50%",
+          filter:"blur(80px)",
+          background:"conic-gradient(from 0deg,#1cd8d2, #00bf8f, #302b63,#1cd8d2)"
+        
+        }}
+      >
+
+      </div>
+
                  <motion.img 
                 src={avator} 
                   alt="avator"
                   className='absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none'
                   style={{
-                    right:"-20px",width:"min(35vw,600px)",maxWidth:"80vh"
+                    right:"-20px",width:"min(35vw,600px)",maxHeight:"90vh"
                   }}
-                  initial={{opacity:0,y:40,scale:0.98}}
+                  initial={{opacity:0,y:100,scale:0.98}}
                   animate={{opacity:1,y:0,scale:1}}
-                  tranistion={{delay:0.2,duration:0.8}}
+                  tranistion={{delay:0.2,duration:1}}
                 />
 
+                </div>
 
     </div>
 
