@@ -2,6 +2,7 @@ import React, { use, useMemo } from 'react'
 import ParticlesBackground from '../components/ParticlesBackground'
 import {motion, scale} from 'framer-motion'
 import {FaXTwitter,FaLinkedin,FaGithub} from 'react-icons/fa6'
+import avator from '../assets/avator.png'
 
 const socials=[
   {Icon : FaXTwitter,label:"X",href:"https://twitter.com/"},
@@ -12,8 +13,8 @@ const socials=[
 const glowVariants={
   initial:{ scale:1,y:0,filter:"drop-shadow(0 0 0px white)"},
   hover:{
-    scale:1.1,
-    y:-10,
+    scale:1.2,
+    y:-2,
     filter:"drop-shadow(0 0 10px rgba(13,88,204,0.5)) drop-shadow(0 0 20px rgba(16,185,129,0.5))",
     transition:{type:"spring",stiffness:300,damping:15}
   },
@@ -50,7 +51,7 @@ const Home = () => {
 
 
   return (
-    <section className='w-full h-screen relative text-white bg-black overflow-hidden'>
+    <section className='w-full h-screen pt-20 pb-10 relative text-white bg-black overflow-hidden'>
       <ParticlesBackground/>
       <div className='absolute inset-0'>
       <div className='absolute -top-32 -left-32 
@@ -76,7 +77,7 @@ const Home = () => {
       '></div>
       </div>
 
-    <div className='relative z-10 h-full w-full max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 '>
+    <div className='relative z-10 h-full w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 '>
     <div className='flex flex-col justify-center h-full text-center lg:text-left relative '>
       <div className='w-full lg:pr-24 mx-auto max-w-[48rem}'>
         <motion.div
@@ -128,11 +129,11 @@ const Home = () => {
                     target="_blank"
                     aria_label={label}
                     rel="noopener noreferrer"
-                    variant={glowVariants}
+                    variants={glowVariants}
                     initial="initial"
                     whileHover="hover"
                     whileTap="tap"
-                    className='text-gray-300 hover:text-white transition-colors duration-300'
+                    className='text-gray-300'
                   > 
                       <Icon/>
                   </motion.a>
@@ -140,6 +141,16 @@ const Home = () => {
           </div>
       </div>
     </div>
+                 <motion.img 
+                src={avator} 
+                  alt="avator"
+                  className='absolute top-1/2 -translate-1/2 object-contain select-none pointer-events-none'
+                  style={{
+                    right:"-20px",width:"min(35vw,600px)",maxWidth:"80vh"
+                  }}
+                />
+
+
     </div>
 
 
