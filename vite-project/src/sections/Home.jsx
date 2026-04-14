@@ -51,10 +51,10 @@ const Home = () => {
 
 
   return (
-    <section className='w-full h-screen pt-20 pb-10 relative text-white bg-black overflow-hidden'>
+    <section className='w-full h-screen pt-20 pb-1 relative text-white bg-black overflow-hidden'>
       <ParticlesBackground/>
       <div className='absolute inset-0'>
-      <div className='absolute -top-32 -left-32 
+      <div className='absolute -top-12 -left-32 
       w-[70vw]  sm:w-[50vw]  md:w-[40vw]
       h-[70vw]  sm:h-[50vw]  md:h-[40vw]
       max-w-[400px] max-h-[400px]
@@ -91,13 +91,13 @@ const Home = () => {
           </span>
           <span className="inline-block w-[10px] ml-1 bg-white animate-pulse align-middle" style={{height:'1em'}}></span>
           </motion.div>
-          <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1cc2d8] via-[#00b2bf] to-[#2b2c63] drop-shadow-lg'
+          <motion.h1 className='text-1xl sm:text-5xl md:text-xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1cc2d8] via-[#00b2bf] to-[#2b2c63] drop-shadow-lg'
           initial={{opacity:0.5,y:40}}
           animate={{opacity:1,y:0}}
           transition={{duration:2}}
           >
             Hello's  I am <br />
-            <span className='text-white font-bold text-5xl  sm:text-6xl md:text-7xl lg:text-8xl lg:space-nowrap'>Md kashif Nisar</span>
+            <span className='text-white font-bold text-5xl  sm:text-6xl md:text-5xl lg:text-5xl lg:space-nowrap'>Md kashif Nisar</span>
           </motion.h1>
           <motion.p className='mt-6 tet-base sm:text-lg md:text-1 text-gray-300 mx-w-2xl mx-auto lg:mx-0'
           initial={{opacity:0,y:40}}
@@ -144,10 +144,13 @@ const Home = () => {
                  <motion.img 
                 src={avator} 
                   alt="avator"
-                  className='absolute top-1/2 -translate-1/2 object-contain select-none pointer-events-none'
+                  className='absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none'
                   style={{
                     right:"-20px",width:"min(35vw,600px)",maxWidth:"80vh"
                   }}
+                  initial={{opacity:0,y:40,scale:0.98}}
+                  animate={{opacity:1,y:0,scale:1}}
+                  tranistion={{delay:0.2,duration:0.8}}
                 />
 
 
