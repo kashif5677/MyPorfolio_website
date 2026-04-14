@@ -1,6 +1,25 @@
 import React, { use, useMemo } from 'react'
 import ParticlesBackground from '../components/ParticlesBackground'
-import {motion} from 'framer-motion'
+import {motion, scale} from 'framer-motion'
+import {FaXTwitter,FaLinkedin,FaGithub} from 'react-icons/fa6'
+
+const socials=[
+  {Icon : FaXTwitter,label:"X",href:"https://twitter.com/"},
+  {Icon:FaLinkedin,label:"LinkedIn",href:"https://www.linkedin.com/in/"},
+  {Icon:FaGithub,label:"Github",href:"https://github.com/"}
+]
+
+const glowVariants={
+  initial:{ scale:1,y:0,filter:"drop-shadow(0 0 0px white)"},
+  hover:{
+    scale:1.1,
+    y:-10,
+    filter:"drop-shadow(0 0 10px rgba(13,88,204,0.5)) drop-shadow(0 0 20px rgba(16,185,129,0.5))",
+    transition:{type:"spring",stiffness:300,damping:15}
+  },
+  tap:{scale:0.95,y:0,transition:{duration:0.08}}
+}
+
 
 const Home = () => {
   const roles=useMemo(()=>["web developer","Software Developer"],[])
@@ -8,7 +27,6 @@ const Home = () => {
   const [index,setIndex]=React.useState(0)
   const [subIndex,setSubIndex]=React.useState(0)
   const [deleting,setdeleting]=React.useState(false)
-  
 
   React.useEffect(()=>{
     const current=roles[index]
@@ -96,8 +114,30 @@ const Home = () => {
             href="#project"
             className='px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] shadow-lg hover:scale-105 transition-all'
             >View my work</a>
-            <a href="">My Resume</a>
+            <a 
+            href="/KASHIF_RESUME.pdf"
+            className='px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 '
+            >My Resume</a>
           </motion.div>
+
+          <div className='mt-10 flex  gap-5 text-2xl md:text-3xl justify-center lg:justify-start'>
+              {socials.map(({Icon,label,href})=>(
+                  <motion.a 
+                    href={href}
+                    key={label}
+                    target="_blank"
+                    aria_label={label}
+                    rel="noopener noreferrer"
+                    variant={glowVariants}
+                    initial="initial"
+                    whileHover="hover"
+                    whileTap="tap"
+                    className='text-gray-300 hover:text-white transition-colors duration-300'
+                  > 
+                      <Icon/>
+                  </motion.a>
+              ))}
+          </div>
       </div>
     </div>
     </div>
