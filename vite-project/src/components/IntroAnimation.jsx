@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React, { useEffect, useMemo } from 'react'
 import { useState } from 'react'
+import {motion} from 'framer-motion'
 
 const IntroAnimation = ({onFinish}) => {
   const greetings=useMemo(()=>[
@@ -10,26 +11,26 @@ const IntroAnimation = ({onFinish}) => {
   "Olá",          // Portuguese
   "Hallo",        // German
   "Ciao",         // Italian
-  "नमस्ते",       // Hindi
   "你好",          // Chinese
   "こんにちは",    // Japanese
   "안녕하세요",    // Korean
   "สวัสดี",       // Thai
-  "مرحبا",        // Arabic
   "Привет",       // Russian
   "Γεια σου",     // Greek
   "Merhaba",      // Turkish
   "Jambo",        // Swahili
+  "नमस्ते",       // Hindi
+  "مرحبا",        // Arabic
   ],[])
   const [index,setIndex]=React.useState(0)
-  const [visible,setVisible]=React.useState(false)
+  const [visible,setVisible]=React.useState(true)
 
   useEffect(()=>{
     if(index<greetings.length-1) {
       const id=setInterval(()=>{setIndex(index+1)},180)
       return ()=>clearInterval(id)
     }else{
-      const t=setTimeout(()=>{setVisible(false)},3000)
+      const t=setTimeout(()=>{setVisible(false)},1000)
       return ()=>clearTimeout(t)
     }
 
@@ -40,7 +41,7 @@ const IntroAnimation = ({onFinish}) => {
       <AnimatePresence onExitComplete={onFinish}>
       {visible && (
         <motion.div
-        className="fixed inset-0 z-[999] flex items-center justify-center bg-black text-white overflow:hidden"
+        className="fixed inset-0 z-[999] flex items-center justify-center bg-black text-white overflow-hidden"
         initial={{y:0}}
         animate={{opacity:1}}
         exit={{y:"-100%",
@@ -58,7 +59,7 @@ const IntroAnimation = ({onFinish}) => {
           exit={{opacity:0,y:-20}}
           transition={{duration:0.12}}
           >
-            greetings[index]
+            {greetings[index]}
           </motion.h1>
         </motion.div>
       ) }
