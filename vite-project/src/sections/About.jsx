@@ -61,7 +61,7 @@ const glows=[
                     <div className=''>{item.label}</div>
                     <div className='text-base font-semibold'>{item.value}</div>
 
-                  </motion.div>
+                  {/* </motion.div> */}
                 ))}
               </div>
             </div>
