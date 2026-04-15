@@ -50,7 +50,7 @@ const glows=[
                 Full stack Developer 
               </p>
               <p className='mt-4 text-gray-300 leading-relax text-base sm:text-lg max-w-2xl '>I  build a Scalable,modern applications with a strong focus on user experience.My toolkit spans the full stack, encompassing both front-end and back-end technologies.</p>
-              <div>
+              <div className='mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4'>
                 {stats.map((item,i)=>(
                   <motion.div key={i} className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center'
                   initial={{y:10,opacity:0}}
@@ -58,9 +58,7 @@ const glows=[
                   transition={{delay:0.05*i,duration:0.5}}
                   viewport={{once:true,amount:0.3}}
                   >
-                    <div className=''>
-                      {item.label}
-                    </div>
+                    <div className=''>{item.label}</div>
                     <div className='text-base font-semibold'>{item.value}</div>
 
                   </motion.div>
