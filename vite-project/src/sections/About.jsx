@@ -61,6 +61,7 @@ const glows=[
                     <div className=''>
                       {item.label}
                     </div>
+                    <div>{item.value}</div>
 
                   </motion.div>
                 ))}
