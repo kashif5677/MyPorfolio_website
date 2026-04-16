@@ -19,6 +19,8 @@ const Skill = () => {
   const repeated=[...skills, ...skills]
   
   const [dir,setDir]=useState(-1)
+  const [active,setActive]=useState(0)
+
 
   return (
     <section id="skills" className='h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden'>
