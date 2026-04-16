@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaC, FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa6'
 import { SiMongodb, SiNodedotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
 import {motion} from 'framer-motion'
@@ -13,10 +13,12 @@ const Skill = () => {
     {icon:<SiTypescript/>,name:"Typescript"},
     {icon:<SiMongodb/>,name:"MongoDB"},
     {icon:<SiNodedotjs/>,name:"NodeJS"},
-    
+
   ];
 
   const repeated=[...skills, ...skills]
+  
+  const [dir,setDir]=useState(-1)
 
   return (
     <section id="skills" className='h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden'>
