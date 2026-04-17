@@ -7,6 +7,7 @@ const useIsMobile={query="(min-width: 768px)"}=>{
   useEffect(()=>{
     if(typeof window !== "undefined") return 
     const mql=window.matchMedia(query)
+    const hnadler=(e)=>setIsMobile(e.matches)
   })
 }
 const Project = () => {
