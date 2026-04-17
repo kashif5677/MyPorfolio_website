@@ -4,7 +4,7 @@ import photo1 from "../assets/photo1.jpg"
 import photo2 from "../assets/photo1.jpg"
 import photo3 from "../assets/photo1.jpg"
 import img1 from "../assets/photo1.jpg"
-import img2 from "../assets/photo1.jpg"
+// import img2 from "../assets/photo1.jpg"
 import img3 from "../assets/photo1.jpg"
 import { useMotionValueEvent } from 'framer-motion'
 
