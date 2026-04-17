@@ -111,7 +111,7 @@ useEffect(()=>{
             <motion.div 
             ref={trackRef}
             className='flex gap-10 text-5xl text-[#1cd8d2] '
-            style={{x,whiteSpace:'nowrap'}}
+            style={{x,whiteSpace:'nowrap',willChange:'transform'}}
             >
                 {repeated.map((items,i)=>(
                     <div key={i} className='flex flex-col items-center gap-2 min-w-[120px]'
