@@ -86,7 +86,7 @@ useEffect(()=>{
       ref={sectionRef}
     className='h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden'>
         <div className='absolute inset-0 pointer-events-none '>
-          {/* <div className='absolute top-1/4 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] blur-[120px] opacity-20 animate-pulse'/> */}
+          <div className='absolute top-1/4 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] blur-[120px] opacity-20 animate-pulse'/>
 
           <div className='absolute bottom-1/4 right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] blur-[120px] opacity-20 animate-pulse delay-500'/>
         </div>
