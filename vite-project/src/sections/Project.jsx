@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState,useRef, useScroll } from 'react'
-import {scrollYProgress} from useScroll
+import React, { useEffect, useMemo, useState,useRef } from 'react'
+import { useScroll } from 'framer-motion'
 import photo1 from "../assets/photo1.jpg"
 import photo2 from "../assets/photo1.jpg"
 import photo3 from "../assets/photo1.jpg"
 import img1 from "../assets/photo1.jpg"
-// import img2 from "../assets/photo1.jpg"
+import img2 from "../assets/photo1.jpg"
 import img3 from "../assets/photo1.jpg"
 import { useMotionValueEvent } from 'framer-motion'
 
@@ -75,7 +75,11 @@ const activeProject=projects[activeIndex]
       backgroundColor:activeProject.bgColor
     }}
     >
-      
+      <div className='sticky top-0 h-screen flex flex-col items-center justify-center'>
+        <h2 className={`text-3xl font-semibold z-10 text-center ${}}`}>
+          My work
+        </h2>
+      </div>
     </section>
   )
 }
