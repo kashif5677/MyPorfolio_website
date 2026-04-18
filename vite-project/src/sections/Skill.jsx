@@ -109,7 +109,7 @@ useEffect(()=>{
 
         <div className='relative w-full overflow-hidden'>
             <motion.div 
-            // ref={trackRef}
+            ref={trackRef}
             className='flex gap-10 text-5xl text-[#1cd8d2] '
             style={{x,whiteSpace:'nowrap',willChange:'transform'}}
             >
