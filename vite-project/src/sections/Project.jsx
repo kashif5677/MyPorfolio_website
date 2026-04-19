@@ -72,7 +72,7 @@ const activeProject=projects[activeIndex]
     className='relative text-white'
     style={{
       height:`${100*projects.length}vh`,
-      backgroundColor:activeProject.bgColor
+      // backgroundColor:activeProject.bgColor
     }}
     >
       <div className='sticky top-0 h-screen flex flex-col items-center justify-center'>
