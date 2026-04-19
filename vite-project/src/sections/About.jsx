@@ -47,7 +47,7 @@ const glows=[
 
             <div className='flex-1 flex flex-col justify-center text-center md:text-left'>
               <h2 className='text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#1cd8d2] text-center md:text-left'>
-                {/* Md kashif Nisar */}
+                Md kashif Nisar
               </h2>
               <p className='mt-2 text-lg sm:text-xl text-white/90 font-semibold '>
                 Full stack Developer 
