@@ -91,7 +91,7 @@ useEffect(()=>{
           <div className='absolute bottom-1/4 right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] blur-[120px] opacity-20 animate-pulse delay-500'/>
         </div>
 
-        {/* <motion.h2 className='text-3xl mt-5 sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] z-10' */}
+        <motion.h2 className='text-3xl mt-5 sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] z-10'
           initial={{opacity:0,y:-30}}
           whileInView={{opacity:1,y:0}}
           transition={{duration:0.5,delay:0.1}}
