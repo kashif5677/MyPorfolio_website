@@ -6,7 +6,7 @@ import photo3 from "../assets/photo1.jpg"
 import img1 from "../assets/photo1.jpg"
 import img2 from "../assets/photo1.jpg"
 import img3 from "../assets/photo1.jpg"
-import { useMotionValueEvent } from 'framer-motion'
+import { useMotionValueEvent, motion, AnimatePresence } from 'framer-motion'
 
 const useIsMobile=(query="(min-width: 768px)")=>{
   const [isMobile, setIsMobile] = useState(
@@ -79,15 +79,18 @@ const activeProject=projects[activeIndex]
         <h2 className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4":"mt-0"}`}>
           My work
         </h2>
-        <div>
+        <div className={`relative flex flex-1 w-full justify-center ${isMobile ? "-mt-4":""}`}>
           {projects.map((projects,idx)=>(
             <div key={projects.title}
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"} `}
+              style={{width:"85%",maxWidth:"1200px"}}
             >
-              
+              <AnimatePresence>
+
+              </AnimatePresence>
             </div>
           ))}
-        {/* </div> */}
+        </div>
       </div>
     </section>
   )
