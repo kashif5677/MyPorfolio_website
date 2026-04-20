@@ -77,7 +77,7 @@ const activeProject=projects[activeIndex]
     >
       <div className='sticky top-0 h-screen flex flex-col items-center justify-center'>
         <h2 className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4":"mt-0"}`}>
-          My work
+          {/* My work */}
         </h2>
         <div>
           {projects.map((projects,idx)=>(
