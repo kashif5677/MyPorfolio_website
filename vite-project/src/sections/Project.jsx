@@ -76,9 +76,18 @@ const activeProject=projects[activeIndex]
     }}
     >
       <div className='sticky top-0 h-screen flex flex-col items-center justify-center'>
-        <h2 className={`text-3xl font-semibold z-10 text-center ${}}`}>
+        <h2 className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4":"mt-0"}`}>
           My work
         </h2>
+        <div>
+          {projects.map((projects,idx)=>(
+            <div key={projects.title}
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"} `}
+            >
+              
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
