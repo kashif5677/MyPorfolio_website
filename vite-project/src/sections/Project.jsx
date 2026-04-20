@@ -87,7 +87,7 @@ const activeProject=projects[activeIndex]
               
             </div>
           ))}
-        </div>
+        {/* </div> */}
       </div>
     </section>
   )
