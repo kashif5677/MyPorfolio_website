@@ -82,7 +82,7 @@ const activeProject=projects[activeIndex]
         <div>
           {projects.map((projects,idx)=>(
             <div key={projects.title}
-              // className={`absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"} `}
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"} `}
             >
               
             </div>
