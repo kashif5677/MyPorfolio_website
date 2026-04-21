@@ -85,7 +85,7 @@ const activeProject=projects[activeIndex]
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"} `}
               style={{width:"85%",maxWidth:"1200px"}}
             >
-              <AnimatePresence>
+              <AnimatePresence mode='wait'>
 
               </AnimatePresence>
             </div>
