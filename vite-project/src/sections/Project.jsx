@@ -118,9 +118,23 @@ const activeProject=projects[activeIndex]
                 }}
                 loading='lazy'
                 />
+                <div className='pointer-events-none'
+                  style={{
+                    zIndex:11,
+                    background:"linear-gradient(180deg,rgba(0,0,0,0.12) 0%,rbga(0,0,0,0) 40%)"
+                  }}
+                >
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className={`absolute ${isMobile ? "bottom-10":"bottom-5"}`}>
+          <a href={activeProject.link}
+            rel="noopener noreferrer"
+            className='inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all'
+            aria-label={`View ${activeProject.title}`}
+          >View Projects</a>
         </div>
       </div>
     </section>
