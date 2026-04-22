@@ -78,13 +78,13 @@ const Experience = () => {
   const sceneRef=useRef(null)
   const [isMobile,setIsMobile]=useState(false)
 
-  // useEffect(()=>{
-  //   const checkMobile=()=>setIsMobile(window.innerWidth<768)
-  //   checkMobile()
-  //   window.addEventListener("resize",checkMobile)
-  //   return ()=>window.removeEventListener("resize",checkMobile)
+  useEffect(()=>{
+    const checkMobile=()=>setIsMobile(window.innerWidth<768)
+    checkMobile()
+    window.addEventListener("resize",checkMobile)
+    return ()=>window.removeEventListener("resize",checkMobile)
 
-  // },[])
+  },[])
 
   const SCENE_HEIGHT_VH=isMobile ? 140*experiences.length : 100*experiences.length
 
