@@ -17,7 +17,7 @@ const experiences=[
   }
 ]
 
-function experienceItem({exp,idx,start,end,scrollYProgress,layout}){
+function ExperienceItem({exp,idx,start,end,scrollYProgress,layout}){
   const scale=useTransform(scrollYProgress,[start,end],[0,1])
   const opacity=useTransform(scrollYProgress,[start,end],[0,1])
   const y=useTransform(scrollYProgress,[start,end],[idx%2==0 ? 30 : -30,0])
@@ -88,7 +88,7 @@ const Experience = () => {
 
   const SCENE_HEIGHT_VH=isMobile ? 140*experiences.length : 100*experiences.length
 
-  const {scrollYProgress}=useScroll({target:sceneRef,offset:["start end"]})
+  const {scrollYProgress}=useScroll({target:sceneRef,offset:["start start","end end"]})
   const thresholds=useMemo(()=>experiences.map((_,i)=>(i+1)/experiences.length),[])
 
   const lineSize=useTransform(scrollYProgress,(v)=>`${v*100}%`)  
@@ -105,6 +105,33 @@ const Experience = () => {
           <h2 className='text-4xl sm:5xl font-semibold mt-5 text-center'>
             Experience
           </h2>
+          <div className='flex flex-1 items-center justify-center px-6 pb-10'>
+    {!isMobile &&(
+      <div className='relative w-full max-w-7xl'>
+        <div className='relative h-[6px] bg-white/15 rounded'>
+      <motion.div className='absolute left-0 top-0 h-[6px] bg-white rounded origin-left'
+      style={{width:lineSize}}
+      >
+
+      </motion.div>
+        </div>
+        <div className='relative flex justify-between mt-0'>
+          {experiences.map((exp,idx)=>(
+              <ExperienceItem 
+              key={idx}
+              exp={exp}
+              idx={idx}
+              start={idx === 0 ? 0 : thresholds[idx-1]}
+              end={thresholds[idx]}
+              scrollYProgress={scrollYProgress}
+              layout="desktop"
+              />
+          ))}
+
+        </div>
+      </div>
+    )}
+          </div>
         </div>
       </div>
     </section>
