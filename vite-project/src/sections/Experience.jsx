@@ -1,5 +1,5 @@
-import { useTransform,motion } from 'framer-motion'
-import React, { useEffect, useState ,useRef} from 'react'
+import { useTransform,motion,useScroll } from 'framer-motion'
+import React, { useEffect, useState ,useRef, useMemo, use} from 'react'
 
 const experiences=[
   {
@@ -88,12 +88,25 @@ const Experience = () => {
 
   const SCENE_HEIGHT_VH=isMobile ? 140*experiences.length : 100*experiences.length
 
-  const {scrollYProgress}=useScroll({target:sceneRef,offset:"start end"})
+  const {scrollYProgress}=useScroll({target:sceneRef,offset:["start end"]})
+  const thresholds=useMemo(()=>experiences.map((_,i)=>(i+1)/experiences.length),[])
+
+  const lineSize=useTransform(scrollYProgress,(v)=>`${v*100}%`)  
 
   return (
     <section id='experience' 
     className='relative bg-black text-white'>
-      
+      <div
+      ref={sceneRef}
+      style={{height:`${SCENE_HEIGHT_VH}vh`,minHeight:"120vh"}}
+      className='relative'
+      >
+        <div className='sticky top-0 h-screen flex flex-col'>
+          <h2 className='text-4xl sm:5xl font-semibold mt-5 text-center'>
+            Experience
+          </h2>
+        </div>
+      </div>
     </section>
   )
 }
