@@ -30,10 +30,10 @@ function ExperienceItem({exp,idx,start,end,scrollYProgress,layout}){
 
           </motion.div>
           <motion.div className={`absolute ${idx%2==0 ? "-top-8":"-bottom-8"} w-[3px] bg-white/40`}
-          style={{height:40,opacity}}
+          style={{height:30,opacity}}
           >
-          <motion.article className={`absolute ${idx%2==0 ? "bottom-12":"top-12"} bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[320px] shadow-lg`}
-          style={{opacity,y,maxWidth:"90vw"}}
+          <motion.article className={`absolute ${idx%2==0 ? "bottom-12":"top-12"} bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[250px] shadow-lg`}
+          style={{opacity,y,left:"50%",maxWidth:"90vw"}}
           transition={{duration:0.2,delay:idx*0.5}}
           >
               <h3 className='text-xl font-semibold'>
