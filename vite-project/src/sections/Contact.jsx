@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { use, useState } from 'react'
 import ParticlesBackground from '../components/ParticlesBackground'
 
+const SERVICE_ID=import.meta.env.VITE_SERVICE_ID
+const TEMPLATE_ID=import.meta.env.VITE_TEMPLATE_ID
+const PUBLIC_KEY=import.meta.env.VITE_PUBLIC_KEY
+
 const Contact = () => {
+  const [formData,setFormData]=useState({
+    name:"",
+    email:"",
+    service:"",
+    budget:"",
+    message:""
+  })
+  const [errors,setErrors]=useState({})
+  const [status,setStatus]=useState("")
+
+  const handleChange=(e)=>{
+    const {name,value}=e.target 
+  }
+
   return (
     <section className='w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10'>
       <ParticlesBackground/>
