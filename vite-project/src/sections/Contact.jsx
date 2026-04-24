@@ -102,9 +102,74 @@ const Contact = () => {
                 placeholder='Your name'
                 value={formData.name}
                 onChange={handleChange}
-                className={``}
+                className={`p-3 rounded-md bg-white/10 border ${errors.name ? "border-red-500" : "border-white/20"} text-white focus:outline-none focus:border-blue-500`}
               />
+              {errors.name && <p className='text-red-500 text-xs'>{errors.name}</p>}
             </div>
+            <div className='flex flex-col'>
+                <label className='mb-1'>
+                  Your Email <span className='text-red-500'>*</span>
+                </label>
+                <input type="text"
+                  name='email'
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`p-3 rounded-md bg-white/10 border ${errors.email ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                />
+                {errors.email && <p className='text-red-500 text-xs'>{errors.email}</p>}
+            </div>
+            <div className='flex flex-col '>
+              <label className='mb-1 '>Service Needed <span className='text-red-500'>*</span></label>
+              <select name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+              >
+                <option value="" className='text-black'>
+                  something in mind?
+                </option>
+                <option value="web development" className='text-black'>
+                  Web developemnt
+                </option>
+                <option value="Mobile application" className='text-black'>
+                  Mobile application
+                </option>
+                <option value="other" className='text-black'>
+                  others
+                </option>
+              </select>
+              {errors.service && <p className='text-red-500 text-xs'>{errors.service}</p>}
+            </div>
+
+            {formData.service && formData.service !== "other" && (
+              <div className='flex flex-col '>
+                  <label className="mb-1">Budget <span className='text-red-500'></span></label>
+                  <input type="text"
+                  name='budget'
+                  placeholder='Your Budget'
+                  onChange={handleChange}
+                  value={formData.budget}
+                  className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                  />
+              </div>
+            )}
+
+            <div className='flex flex-col'>
+              <label className='mb-1'>Expalin your idea <span className='text-red-500'>*</span></label>
+              <textarea name="idea"
+              rows={5}
+              placeholder='Enter your idea'
+              value={formData.idea}
+              onChange={handleChange}
+              className={`p-3 rounded-md bg-white/10 border ${errors.idea ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+              >{errors.idea && <p className='text-red-500 text-xs'>{errors.idea}</p>}</textarea>
+            </div>
+            {status && (
+              <p>
+                {status ==="sending " ? "sending...":status=== "success" ? "Message sent successfully":"Something went wrong"}
+              </p>
+            )}
           </form>
 
       </motion.div>
