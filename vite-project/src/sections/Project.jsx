@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react'
 import { useScroll } from 'framer-motion'
-import photo1 from "../assets/photo1.jpg"
-import photo2 from "../assets/photo2.jpg"
-import photo3 from "../assets/photo3.jpg"
+import photo1 from "../assets/photo1.JPG"
+import photo2 from "../assets/photo2.JPG"
+import photo3 from "../assets/photo3.JPG"
 
 import { useMotionValueEvent, motion, AnimatePresence } from 'framer-motion'
 
