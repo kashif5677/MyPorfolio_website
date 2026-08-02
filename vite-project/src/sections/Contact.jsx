@@ -4,41 +4,41 @@ import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import Astra from '../assets/Astra.png'
 
-const SERVICE_ID=import.meta.env.VITE_SERVICE_ID
-const TEMPLATE_ID=import.meta.env.VITE_TEMPLATE_ID
-const PUBLIC_KEY=import.meta.env.VITE_PUBLIC_KEY
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY
 
 const Contact = () => {
-  const [formData,setFormData]=useState({
-    name:"",
-    email:"",
-    service:"",
-    budget:"",
-    message:""
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    budget: "",
+    message: ""
   })
-  const [errors,setErrors]=useState({})
-  const [status,setStatus]=useState("")
+  const [errors, setErrors] = useState({})
+  const [status, setStatus] = useState("")
 
-  const handleChange=(e)=>{
-    const {name,value}=e.target
-    if(name === "budget" && value && !/^\d+$/.test(value)) return
-    setFormData((p)=>({...p,[name]:value}))
-    if(errors[name]) setErrors((p)=>({...p,[name]:""}))
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    if (name === "budget" && value && !/^\d+$/.test(value)) return
+    setFormData((p) => ({ ...p, [name]: value }))
+    if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }))
   }
 
-  const validateForm=()=>{
-    const required=["name","email","service","message"]
-    const newErrors={}
-    required.forEach((field)=> !formData[field].trim() && (newErrors[field]="This field is required"))
-    if(formData.service !== "other" && !formData.budget.trim())  // ✅ fix 5: removed !
-      newErrors.budget="This field is required"
+  const validateForm = () => {
+    const required = ["name", "email", "service", "message"]
+    const newErrors = {}
+    required.forEach((field) => !formData[field].trim() && (newErrors[field] = "This field is required"))
+    if (formData.service !== "other" && !formData.budget.trim())  // ✅ fix 5: removed !
+      newErrors.budget = "This field is required"
     setErrors(newErrors)
     return !Object.keys(newErrors).length
   }
 
-  const handleSumit=async(e)=>{
+  const handleSumit = async (e) => {
     e.preventDefault()
-    if(!validateForm()) return
+    if (!validateForm()) return
     setStatus("sending")  // ✅ fix 4: no trailing space
     try {
       await emailjs.send(
@@ -46,48 +46,48 @@ const Contact = () => {
         TEMPLATE_ID,
         {
           ...formData,
-          from_name:formData.name,
-          reply_to:formData.email
+          from_name: formData.name,
+          reply_to: formData.email
         },
         PUBLIC_KEY
       )
       setStatus("success")
       setFormData({
-        name:"",
-        email:"",
-        service:"",
-        budget:"",
-        message:""
+        name: "",
+        email: "",
+        service: "",
+        budget: "",
+        message: ""
       })
     } catch (err) {
-      console.log("Email error",err)
+      console.log("Email error", err)
       setStatus("error")  // ✅ fix 6: string not object
     }
   }
 
   return (
-    <section className='w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10'>
-      <ParticlesBackground/>
+    <section id='contact' className='w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10'>
+      <ParticlesBackground />
       <div className='relative z-10 w-full flex flex-col md:flex-row items-center gap-10'>
 
         {/* Left side */}
         <motion.div className="w-full md:w-1/2 flex justify-center"
-          initial={{opacity:0,x:-50}}
-          whileInView={{opacity:1,x:0}}
-          transition={{duration:0.5}}  // ✅ fix 1: was transform
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}  // ✅ fix 1: was transform
         >
           <motion.img src={Astra} alt="Contact"
             className='w-60 md:w-140 rounded-2xl shadow-lg object-cover'
-            animate={{y:[0,-10,0]}}
-            transition={{duration:2,repeat:Infinity,ease:"easeInOut"}}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
 
         {/* Right side */}
         <motion.div className="w-full md:w-1/2 bg-white/5 p-8 rounded-2xl shadow-lg border border-white/10"
-          initial={{opacity:0,x:50}}
-          whileInView={{opacity:1,x:0}}
-          transition={{duration:0.5}}  // ✅ fix 1: was transform
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}  // ✅ fix 1: was transform
         >
           <h2 className='text-3xl font-bold mb-6'>
             Let's work together
@@ -113,7 +113,7 @@ const Contact = () => {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${errors.email ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-white/10 border ${errors.email ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
               />
               {errors.email && <p className='text-red-500 text-xs'>{errors.email}</p>}
             </div>
@@ -123,7 +123,7 @@ const Contact = () => {
               <select name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
               >
                 <option value="" className='text-black'>something in mind?</option>
                 <option value="web development" className='text-black'>Web development</option>
@@ -141,7 +141,7 @@ const Contact = () => {
                   placeholder='Your Budget'
                   onChange={handleChange}
                   value={formData.budget}
-                  className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                  className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
                 />
                 {errors.budget && <p className='text-red-500 text-xs'>{errors.budget}</p>}
               </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                 placeholder='Enter your idea'
                 value={formData.message} // ✅ fix 2: was formData.idea
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${errors.message ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-white/10 border ${errors.message ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
               />
               {errors.message && <p className='text-red-500 text-xs'>{errors.message}</p>}  {/* ✅ fix 3: outside textarea */}
             </div>
@@ -168,8 +168,8 @@ const Contact = () => {
 
             <motion.button
               className='bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition'
-              whileHover={{scale:1.05}}
-              whileTap={{scale:0.95}}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               disabled={status === "sending"}
               type='submit'
             >
